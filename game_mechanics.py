@@ -1,7 +1,7 @@
 
 #---------------------------------------
 #  Game Mechanics
-#    Student A (team lead)
+#    Student A (team lead) Mahnaz Mir 281170432
 #---------------------------------------
 
 def welcome_message():
