@@ -103,9 +103,12 @@ def select_random_question(category):
     - tuple: A tuple containing the selected question (str) and its corresponding answer (str).
     """
     #------------------------
-    # Add your code here
+    if category in questions and questions[category]:
+        return random.choice(questions[category])
+    else:
+        return None
     #------------------------
-    raise NotImplementedError("This function is not implemented yet.")
+    
     #------------------------
 
 #---------------------------------------
@@ -122,9 +125,9 @@ def check_answer(player_answer, correct_answer):
     - bool: True if the answers match, False otherwise.
     """
     #------------------------
-    # Add your code here
+    return player_answer.strip().lower() == correct_answer.strip().lower()
     #------------------------
-    raise NotImplementedError("This function is not implemented yet.")
+    
     #------------------------
 
 #---------------------------------------
@@ -141,9 +144,10 @@ def remove_question(category, question):
     - None
     """
     #------------------------
-    # Add your code here
+    if category in questions:
+        questions[category] = [q for q in questions[category] if q[0] != question]
     #------------------------
-    raise NotImplementedError("This function is not implemented yet.")
+    
     #------------------------
 
 #---------------------------------------
@@ -159,9 +163,10 @@ def display_question_and_accept_answer(question):
     - str: The player's answer to the question.
     """
     #------------------------
-    # Add your code here
+    print("Question:", question)
+    return input("Your answer: ")
     #------------------------
-    raise NotImplementedError("This function is not implemented yet.")
+    
     #------------------------
 
 #---------------------------------------
@@ -178,9 +183,15 @@ def provide_hint(category, question):
     - str: The hint for the given question.
     """
     #------------------------
-    # Add your code here
+    if category in questions and category in hints:
+        try:
+            index = [q[0] for q in questions[category]].index(question)
+            return hints[category][index]
+        except ValueError:
+            return "No hint available."
+    return "No hint available."
     #------------------------
-    raise NotImplementedError("This function is not implemented yet.")
+    
     #------------------------
 
 #---------------------------------------
@@ -196,9 +207,7 @@ def display_correct_answer(correct_answer):
     - None
     """
     #------------------------
-    # Add your code here
-    #------------------------
-    raise NotImplementedError("This function is not implemented yet.")
+    print(f"The correct answer was: {correct_answer}")
     #------------------------
 
 #---------------------------------------
