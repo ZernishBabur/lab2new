@@ -117,18 +117,7 @@ def run_game_rounds(categories):
         correct - validate_answer(player_answer, questiondata["answer"])
         score = update_score(score, correct)
         display_score(score, round_number)
-        if not correct:
-            incorrect_answers += 1
-            print("incorrect answer.")
-        if check_game_over(incorrect_answers):
-            game_over_message(score)
-            restart_or_exit()
-            return
-        round_number = next_round(round_number)
-    game_over_message(score)
-    restart_or_exit()
-welcome_message()
-run_game_rounds(categories)
+    
     #------------------------
 
     #------------------------
